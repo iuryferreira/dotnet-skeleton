@@ -105,4 +105,4 @@ De acordo com a [documentação oficial](https://editorconfig.org/), o arquivo `
 
 Os arquivos EditorConfig são facilmente legíveis e funcionam bem com sistemas de controle de versão.
 
-Na sua aplicação C# ele pode ser muito útil devido a extensa possibilidade de estilar o seu código e definir padrões para o projeto, ferramenta que se torna essencial para projetos em equipe.
+Na sua aplicação C# ele pode ser muito útil devido a extensa possibilidade de estilizar o seu código e definir padrões para o projeto, ferramenta que se torna essencial para projetos em equipe.
