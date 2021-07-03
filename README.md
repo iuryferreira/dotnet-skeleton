@@ -49,11 +49,60 @@ O nosso primeiro é criar uma pasta que armazenará o todo o código-fonte, arqu
 O arquivo de solução está contido nesse diretório juntamente com outros arquivos como a pasta do Git, o arquivo gitignore e outros arquivos de **configuração global** da nossa aplicação.
 
 
-Dentro do nosso diretório-raiz criamos outra pasta chamada **src**, responsável por agrupar as pastas e arquivos referentes a todos os projetos, como exemplificado na imagem abaixo.
+Dentro do nosso diretório-raiz criamos outra pasta chamada **src**, responsável por agrupar as pastas e arquivos referentes a todos os projetos, como exemplificado na imagem abaixo, a qual temos as pastas na cor roxa e os arquivos (que falaremos um pouco mais a frente) na cor mais clara.
 
 
 <div align="center"> 
   <img alt="Estrutura de Pastas" title="Idigis" src=".github/assets/structure-folder.png" />
 </div>
 
-Esta é uma estrutura simples e clara, que facilita a organização da aplicação e separa escopos, como por exemplo, configurações específicas de cada projeto e configurações globais.
+Esta é uma estrutura simples e clara, que facilita a organização da aplicação e separa escopos, como por exemplo, configurações específicas de cada projeto e configurações globais. Caso o Core do seu projeto tenha múltiplos projetos pode-se usar uma estrutura similar, como esta:
+
+<div align="center"> 
+  <img alt="Estrutura de Pastas" title="Idigis" src=".github/assets/structure-folder-2.png" />
+</div>
+
+Vale ressaltar que estas estruturas podem variar a depender do projeto, empresa ou comunidade em que está contribuindo. A intenção realmente é "dar um norte" na organização de projetos .NET.
+
+## 🛠️ Configurações Globais
+
+Nas imagens acima, podemos observar alguns arquivos que estão no diretório raiz do nosso projeto. Se você já criou/utilizou algum repositório Git, verá que alguns desses arquivos são comuns, como o `.gitignore`. No entanto uma aplicação C# pode contar diversos outros arquivos que irão auxiliá-los na melhor experiência e padronização da aplicação. 
+
+
+### global.json
+
+De acordo com a documentação da Microsoft, temos que o `global.json` é um arquivo que permite que você defina qual versão do SDK do .NET é usada quando você executa comandos da CLI do .NET. 
+
+Essa definição também é herdada por editores/IDE's e facilitam na hora hora de definir qual a versão-base do projeto e quais versões poderão ser utilizadas nele.
+
+Esse arquivo nos permite definir que todos desenvolverem o projeto juntamente conosco utilizem a mesma versão e assim evitem conflitos de recursos não disponíveis entre as versões. Além disso você também pode definir quais versões de atualização do SDK são suportadas pelo seu projeto, tornando o ambiente de desenvolvimento mais coeso.
+
+Para utilizá-lo basta executar no comando `dotnet new globaljson` no diretório raiz do seu projeto. Caso deseja compreender como configurá-lo, sugiro que consulte a documentação oficial, clicando [aqui](https://docs.microsoft.com/pt-br/dotnet/core/tools/global-json?tabs=netcore3x).
+
+### omnisharp.json (opcional)
+
+Se você utiliza o Visual Studio Code e extensão do C#, esta configuração pode ser útil a você. O **OmniSharp** é um conjunto de projetos *open-source* que trabalham juntos para trazer o desenvolvimento .NET para qualquer editor de texto.
+
+A camada base é um servidor que executa o **Roslyn**, um analizador de código-fonte desenvolvido para o .NET, que analisa os arquivos do projeto que estão abertos dentro do editor.
+
+Em consonância a isso, temos que o `omnisharp.json` é o arquivo de configuração do OmniSharp. Ele é um conjunto de opções de configuração que podem ser usadas para modificar o comportamento do OmniSharp em relação a:
+
+ - Configurações de projeto (MSBuild, CSX entre outros);
+ - opções de formatação de código;
+ - Opções de extensões Roslyn;
+ - opções de inclusão e exclusão de arquivos a serem analizados;
+
+
+ Utilizá-lo pode garantir um melhor uso dos recursos do teu projeto, aprimorar o seu código e definir o seu estilo. Por exemplo, excluir pastas como a `bin` ou `obj` nas configurações do seu omnisharp pode incrementar a performance do analizador, tendo em vista que há menos arquivos para se observar.
+
+ Você pode encontrar as configurações disponíveis clicando [aqui](https://github.com/OmniSharp/omnisharp-roslyn/wiki/Configuration-Options).
+
+
+
+### .editorconfig
+
+De acordo com a [documentação oficial](https://editorconfig.org/), o arquivo `.editorconfig` ajuda a manter estilos de codificação consistentes para vários desenvolvedores que trabalham no mesmo projeto em vários editores e IDEs. 
+
+Os arquivos EditorConfig são facilmente legíveis e funcionam bem com sistemas de controle de versão.
+
+Na sua aplicação C# ele pode ser muito útil devido a extensa possibilidade de estilar o seu código e definir padrões para o projeto, ferramenta que se torna essencial para projetos em equipe.
